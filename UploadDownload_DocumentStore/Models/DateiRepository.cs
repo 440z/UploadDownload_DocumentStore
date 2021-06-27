@@ -10,10 +10,10 @@ namespace UploadDownload_DocumentStore.Models
 {
     public class DateiRepository
     {
-        private const string connectionString = @"Data Source=.\SQLEXPRESS;" +
-                                            "Initial Catalog=NETDB;" +
-                                            "Integrated Security=true;";
-
+        //private const string connectionString = @"Data Source=.\SQLEXPRESS;" +
+        //                                    "Initial Catalog=NETDB;" +
+        //                                    "Integrated Security=true;";
+        
 
 
         public List<DateiBeschreibung> DateiListeAbrufen()
