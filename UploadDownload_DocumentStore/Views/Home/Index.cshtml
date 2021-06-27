@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DateiBeschreibung>
+
+@{
+    ViewData["Title"] = "Document Store";
+}
+
+@using (Html.BeginForm("Index",
+   "Home",
+   FormMethod.Post,
+   new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Datei auswählen:</label>
+    <br />
+    <input type="file" name="dieDatei" size="80" />
+    <br />
+    <br />
+    <input type="submit" value="Hochladen" />
+    <br />
+    <br />
+    if (ViewBag.Meldung != null)
+    {
+        <p>@ViewBag.Meldung</p>
+    }
+}
+
+@if (Model != null)
+{
+    <table border="1">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Download" asp-route-id="@item.Id" asp-route-dateiTyp="@item.ContentType" asp-route-dateiName="@item.Name">@item.Name</a>
+                    @Html.ActionLink(item.Name, "Download", new { id = item.Id, dateiTyp = item.ContentType, dateiName = item.Name })
+                </td>
+                <td>
+                    @item.ContentType
+                </td>
+                <td>
+                    @item.EinfügeDatum.ToLongDateString() - @item.EinfügeDatum.ToShortTimeString()
+                </td>
+
+            </tr>
+        }
+    </table>
+}
