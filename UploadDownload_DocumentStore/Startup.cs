@@ -27,7 +27,7 @@ namespace UploadDownload_DocumentStore
         {
             services.AddMvc();
 
-            services.AddDbContext<NETDB>(options => options.UseSqlServer(Configuration.GetConnectionString("MeineDatenbank")));
+            //services.AddDbContext<NETDB>(options => options.UseSqlServer(Configuration.GetConnectionString("MeineDatenbank")));
         }
 
 
